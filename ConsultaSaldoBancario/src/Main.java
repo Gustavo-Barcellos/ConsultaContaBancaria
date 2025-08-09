@@ -59,14 +59,20 @@ public class Main {
                 Scanner receberValor = new Scanner (System.in);
                 System.out.println("Quanto você deseja depositar na conta?");
                 double valorAdicionado = selecaoUsuario.nextInt();
-                saldo += valorAdicionado;
-                System.out.println("Saldo atualizado: " + saldo);
+                if (valorAdicionado <= 0) {
+                    System.out.println("Digite um valor válido.");
+                } else {
+                    saldo += valorAdicionado;
+                    System.out.println("Saldo atualizado: " + saldo);
+                }
             } else if (opcaoSelecionada == 3) {
                 Scanner transferirValor = new Scanner(System.in);
                 System.out.println("Quanto você deseja transferir?");
                 double valorRetirado = selecaoUsuario.nextInt();
                 if (valorRetirado > saldo) {
                     System.out.println("Valor insuficiente para transferência.");
+                } else if (valorRetirado <=0) {
+                    System.out.println("Digite um valor válido.");
                 } else {
                     saldo -= valorRetirado;
                     System.out.println("Saldo atualizado: " + saldo);
